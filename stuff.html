@@ -1,0 +1,31 @@
+$(document).ready(function() {
+    $("#submit").empty(
+
+       { $("#submit").click(function() 
+            SC.get(
+                '/tracks', {
+                    q: $('#search').val()
+                },
+                function(tracks) {
+                    for (var i = 0; i < tracks.length; i++) {
+                        var track = tracks[i];
+                        console.log(track.title);
+                        $("#list").append("<li>" + track.title + "</li>");
+                    }
+                }
+            );
+        })
+
+    );
+});
+
+
+
+
+
+/js/giphy.js
+function getGiphyGifs(query, callback) { … }
+Example
+getGiphyGifs(“puppies”, function(data) {
+  console.log(data[0].url);
+});
